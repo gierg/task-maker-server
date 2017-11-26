@@ -1,0 +1,43 @@
+{
+  "name": "node-todo",
+  "version": "0.0.0",
+  "private": true,
+  "apidoc": {
+    "name": "Task API documentation",
+    "version": "1.0.0",
+    "description": "API task list manager",
+    "template": {
+      "forceLanguage": "en"
+    }
+  },
+  "scripts": {
+    "start": "./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint **/*.js",
+    "apidoc": "apidoc -e \"(node_modules|public)\" -o public/apidoc",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "apidoc": "^0.17.6",
+    "body-parser": "~1.18.2",
+    "compression": "^1.7.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^4.0.0",
+    "express": "~4.15.5",
+    "global": "^4.3.2",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.13.5",
+    "morgan": "~1.9.0",
+    "oauth2-server": "^3.0.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5",
+    "validator": "^9.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
+    "nyc": "^11.3.0"
+  }
+}
