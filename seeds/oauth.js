@@ -33,6 +33,8 @@ User.find({}).remove()
               clientID: 'democlient',
               clientSecret: 'democlientsecret',
               redirectUris: ['http://127.0.0.1/3000'],
+              accessTokenLifetime: 4 * 60 * 60,
+              refreshTokenLifetime: 4 * 60 * 60,
               grants: ['authorization_code', 'password', 'refresh_token', 'client_credentials'],
               User: user._id
             });

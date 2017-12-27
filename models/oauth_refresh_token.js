@@ -9,6 +9,10 @@ const OAuthRefreshTokenSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  scope: {
+    type: String,
+    required: false
+  },
   User: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

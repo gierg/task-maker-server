@@ -103,12 +103,14 @@ function saveToken(token, client, user) {
     OAuthAccessToken.create({
       accessToken: token.accessToken,
       accessTokenExpiresAt: token.accessTokenExpiresAt,
+      scope: token.scope,
       OAuthClient: client._id,
       User: user._id
     }),
     token.refreshToken ? OAuthRefreshToken.create({
       refreshToken: token.refreshToken,
       refreshTokenExpiresAt: token.refreshTokenExpiresAt,
+      scope: token.scope,
       OAuthClient: client._id,
       User: user._id
     }) : []

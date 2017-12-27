@@ -18,6 +18,14 @@ const OAuthClientSchema = new mongoose.Schema({
     type: Array,
     required: true
   },
+  accessTokenLifetime: {
+    type: Number,
+    required: true
+  },
+  refreshTokenLifetime: {
+    type: Number,
+    required: true
+  },
   User: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
