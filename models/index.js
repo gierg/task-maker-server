@@ -1,5 +1,4 @@
 const _ = require('lodash');
-require('./../seeds/oauth');
 require('./../config/db');
 
 const OAuthAccessToken = require('./oauth_access_token');
@@ -7,6 +6,10 @@ const OAuthAuthorizationCode = require('./oauth_authorization_code');
 const OAuthClient = require('./oauth_client');
 const OAuthRefreshToken = require('./oauth_refresh_token');
 const User = require('./user');
+
+if(process.env.SEEDER === 'TRUE') {
+  require('./../seeds/oauth');
+}
 
 function getAccessToken(bearerToken) {
   return OAuthAccessToken
