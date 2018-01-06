@@ -2,7 +2,9 @@ const Task = require('../../models/task');
 const _ = require('lodash');
 
 const getTasks = function (req, res, next) {
-  Task.find({}, null, { sort: { _id: -1 } }, (error, tasks) => {
+  const userID = req.user.User._id;
+
+  Task.find({ userID: userID }, null, { sort: { _id: -1 } }, (error, tasks) => {
     if(error) {
       return next(error);
     }
@@ -11,6 +13,8 @@ const getTasks = function (req, res, next) {
 };
 
 const addTask = function (req, res, next) {
+  req.body.userID = req.user.User._id;
+
   let newTask = new Task(_.pick(req.body, [
     'description',
     'isComplete',
@@ -40,6 +44,7 @@ const readTask = function (req, res, next) {
 
 const updateTask = function (req, res, next) {
   const id = req.params.id;
+  req.body.userID = req.user.User._id;
 
   Task.findById(id, (error, task) => {
     if(error) {
